@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProjectOnlineSellingSystem1.Models.product>
+
+@{
+    ViewBag.Title = "ViewProducts";
+}
+<div class="form-horizontal">
+    <h2>ViewProducts</h2>
+    <head>
+        <style>
+             body {
+                 background-image: url('../../Image/bg7.jpg');
+                 /*background-size: cover ;
+            // width:100%;
+             height:auto;*/
+                 background-size: 1500px 700px;
+                 background-repeat: no-repeat;
+             }
+        </style>
+    </head>
+
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+        @Html.ActionLink("Go Back To Menu", "Navigate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.ProductImage)*@
+                    <img src=" @Url.Content(item.ProductImage)" width="150" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,39 @@
+﻿
+<link href="~/Content/NavigateStyle.css" rel="stylesheet" />
+<div class="navigateBox">
+    <h1 id="heading">Welcome To Admin Page</h1>
+    <h2 id="heading">Menu</h2>
+    <p id="firstline">Please select an option :</p>
+    <nav>
+        <head>
+            <style>
+                     body {
+                         background-image: url('../../Image/bg6.jpg');
+                         /*background-size: cover ;
+                // width:100%;
+                 height:auto;*/
+                         background-size: 1500px 700px;
+                         background-repeat: no-repeat;
+                     }
+            </style>
+        </head>
+        <div class="actionLinkClass">
+            <p></p>
+            @Html.ActionLink("Add Products", "AddProducts")
+
+        </div>
+        <br />
+        <div class="actionLinkClass">
+            <p></p>
+            @Html.ActionLink("View Products ", "ViewProducts")
+        </div>
+        <br />
+        <div class="actionLinkClass">
+            <p></p>
+            @Html.ActionLink("View Placeorder Details", "ViewPlaceOrderDetails")
+        </div>
+    </nav>
+</div>
+<div>
+    @Html.ActionLink("Logout", "Login", "UserDetail")
+</div>

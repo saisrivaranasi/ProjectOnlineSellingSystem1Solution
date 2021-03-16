@@ -1,0 +1,78 @@
+﻿@model ProjectOnlineSellingSystem1.Models.product
+
+@{
+    ViewBag.Title = "AddProducts";
+}
+
+<h2>AddProducts</h2>
+<head>
+    <style>
+        body {
+            background-image: url('../../Image/bg4.jpg');
+            /*background-size: cover ;
+           // width:100%;
+            height:auto;*/
+            background-size: 1500px 700px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+@using (Html.BeginForm("AddProducts", "SellerDetails", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+                @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>product</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProductId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.ProductImage, new { htmlAttributes = new { @class = "form-control" } })*@
+            <input type="file" name="ImageFile" required />
+            @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Go Back To Menu", "Navigate")
+</div>
